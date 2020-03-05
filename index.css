@@ -1,0 +1,9 @@
+.form-group.required :after {
+    content: "*";
+    color: red;
+}
+
+.btn-container {
+    max-width: none;
+    width: 145px;
+}

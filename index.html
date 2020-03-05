@@ -1,0 +1,128 @@
+<html lang="ja">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Todo App</title>
+    <script type="module" src="index.js"></script>
+    <link rel="stylesheet" type="text/css" href="index.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="bootstrap-datepicker/css/bootstrap-datepicker.min.css">
+</head>
+
+<body>
+    <div class="todoapp">
+        <nav class="navbar navbar-expand-xl sticky-top navbar-dark bg-dark">
+            <a class="navbar-brand" href="#">Do it!</a>
+        </nav>
+
+        <div class="border col-sm">
+            <div class="mt-3 mb-3">
+                <h2 id="classquotmt-3_mb-3quotgtlth2gt" style="display: inline">To do list</h2>
+                <button class="btn btn-primary float-right" data-toggle="modal" data-target="#testModal">New Task</button>
+            </div>
+            <table class="table table-bordered todos">
+                <thead class="thead-dark ">
+                    <tr>
+                        <th>タスク</th>
+                        <th>優先度</th>
+                        <th>期限</th>
+                        <th>備考</th>
+                        <th class="btn-container"></th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+    </div>
+
+    <div class="modal fade" id="testModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="myModalLabel">新規登録</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md">
+                            <form class="add">
+                                <div class="form-group required mb-4">
+                                    <label>タスク</label>
+                                    <input type="text" class="form-control" name="task" placeholder="New Task">
+                                </div>
+                                <div class="form-group required my-4">
+                                    <label>優先度</label>
+                                    <select class="form-control" name="priority">
+                                        <option>緊急</option>
+                                        <option>高</option>
+                                        <option>中</option>
+                                        <option>低</option>
+                                        <option>最低</option>
+                                    </select>
+                                </div>
+                                <div class="form-group my-4" id="datepicker-default">
+                                    <label>期限</label>
+                                    <div class="form-inline">
+                                        <div class="input-group date">
+                                            <input type="text" class="form-control" name="deadline" value="">
+                                            <div class="input-group-addon">
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <script>
+                                    $(function() {
+                                        //Default
+                                        $('#datepicker-default .date').datepicker({
+                                            format: "yyyy年mm月dd日",
+                                            language: 'ja',
+                                            autoclose: true
+                                        });
+
+                                    });
+                                </script>
+                                <div class="form-group my-4">
+                                    <label>備考</label>
+                                    <textarea class="form-control" rows="3" name="other"></textarea>
+                                </div>
+                                <div class="text-right">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
+                                    <button type="button" class="btn btn-primary" data-dismiss="modal" id="addTask">登録</button>
+
+                                </div>
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="myModalLabel">削除確認画面</h4>
+                </div>
+                <div class="modal-body">
+                    <label>データを削除しますか？</label>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal" id="delete">削除</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
+    <script type="text/javascript" src="bootstrap-datepicker/locales/bootstrap-datepicker.ja.min.js"></script>
+</body>
+
+</html>
